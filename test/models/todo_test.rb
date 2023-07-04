@@ -11,7 +11,10 @@ class TodoTest < ActiveSupport::TestCase
   end
 
   test "valid if the reminder is less than the todo" do 
-    assert(true, ["Reminder can not be after todo date."])
+    def setup
+      @todo = Todo.new(task: "test2", due_on: Fri, 30 Jun 2024 10:41:00.000000000 UTC +00:00, remind_at: Fri, 31 Jun 2023 00:43:00.000000000 UTC +00:00)
+    end
+
   end
 
 end
