@@ -8,8 +8,19 @@ class TodoTest < ActiveSupport::TestCase
   end
 
   test "valid if the reminder is less than the todo" do 
-    @todo = Todo.new(task: "test2", due_on: Date.today, remind_at: 2.days.from_now)
-    @todo.valid?
-   end
+    @todo = todos("invalid")
+    refute @todo.valid?
+    @todo.remind_at = @todo.due_on - 15.minutes 
+    assert @todo.valid?
+  end
+
+  test "enum is set to new" do
+    @todo = todos("new_task")
+    assert @todo.valid?
+    @todo.status = "complete"
+    assert @todo.valid?
+    @todo.status = "notvaild"
+    refute @todo.valid?
+  end
 
 end
