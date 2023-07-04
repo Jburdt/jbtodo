@@ -3,17 +3,17 @@
 new_task:
   task: MyString
   due_on: 2023-06-08 11:28:07
-  remind_at: 2023-06-08 11:28:07
-  status: new
+  remind_at: 2023-06-08 11:18:07
+  status: fresh
 
 complete_task:
   task: MyString
   due_on: 2023-06-08 11:28:07
   remind_at: 2023-06-08 11:28:07
-  status: new
+  status: complete
 
 invalid:
   task: Test
   due_on: 2023-06-08 11:28:07
   remind_at: 2023-06-09 11:28:07
-  status: new
+  status: fresh
