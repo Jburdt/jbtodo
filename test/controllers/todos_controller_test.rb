@@ -2,7 +2,7 @@ require "test_helper"
 
 class TodosControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @todo = todos(:one)
+    @todo = todos(:new_task)
   end
 
   test "should get index" do

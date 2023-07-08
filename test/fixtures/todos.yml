@@ -1,5 +1,3 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 new_task:
   task: MyString
   due_on: 2023-06-08 11:28:07
