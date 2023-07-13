@@ -14,8 +14,8 @@ class TodosTest < ApplicationSystemTestCase
     visit todos_url
     click_on "New todo"
 
-    fill_in "Due on", with: @todo.due_on.to_datetime
-    fill_in "Remind at", with: @todo.remind_at.to_datetime
+    fill_in "Due on", with: DateTime.parse(@todo.due_on).to_s
+    fill_in "Remind at", with: DateTime.parse(@todo.remind_at).to_s
     fill_in "Task", with: @todo.task
     click_on "Create Todo"
 
@@ -27,8 +27,8 @@ class TodosTest < ApplicationSystemTestCase
     visit todo_url(@todo)
     click_on "Edit this todo", match: :first
 
-    fill_in "Due on", with: @todo.due_on.to_datetime
-    fill_in "Remind at", with: @todo.remind_at.to_datetime
+    fill_in "Due on", with: DateTime.parse(@todo.due_on)
+    fill_in "Remind at", with: DateTime.parse(@todo.remind_at)
     fill_in "Task", with: @todo.task
     click_on "Update Todo"
 

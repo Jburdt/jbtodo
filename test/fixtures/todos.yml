@@ -1,17 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
 new_task:
   task: MyString
-  due_on: 2023-06-08 11:28:07
-  remind_at: 2023-06-08 11:18:07
+  due_on: 2023-06-08T11:28
+  remind_at: 2023-06-08T11:18
   status: fresh
 
 complete_task:
   task: MyString
-  due_on: 2023-06-08 11:28:07
-  remind_at: 2023-06-08 11:28:07
+  due_on: 2023-06-08T11:28
+  remind_at: 2023-06-08T11:28
   status: complete
 
 invalid:
   task: Test
-  due_on: 2023-06-08 11:28:07
-  remind_at: 2023-06-09 11:28:07
+  due_on: 2023-06-08T11:28
+  remind_at: 2023-06-09T11:28
   status: fresh
