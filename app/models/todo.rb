@@ -1,5 +1,5 @@
 class Todo < ApplicationRecord
-  enum status: { fresh: "new", complete: "complete" }
+  enum status: { pending: "new", complete: "complete" }
   validates :status, inclusion: { in: statuses.keys }
   validates :task, presence: true
   validates :remind_at, comparison: { less_than: :due_on }
