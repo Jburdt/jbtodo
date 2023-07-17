@@ -10,5 +10,14 @@
 
   <div id="todos" class="min-w-full">
     <%= render @todos %>
+        <ul>
+      <% @todos.each do |todo| %>
+      <li>
+        <%= todo.task%>
+        <%= todo.due_on%>
+        <%= todo.remind_at%>
+      </li>
+      <% end %>
+    </ul>
   </div>
 </div>
