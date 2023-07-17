@@ -9,10 +9,11 @@
   </div>
 
   <div id="todos" class="min-w-full">
-    <%= render @todos %>
+    <%#= render @todos %>
     <ul>
       <% @todos.each do |todo| %>
         <li>
+          <%#= render @todos %>
           <%= todo.task %>
           <%= todo.due_on %>
           <%= todo.remind_at %>
