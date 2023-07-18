@@ -30,9 +30,12 @@ class TodosTest < ApplicationSystemTestCase
     fill_in "Due on", with: @todo.due_on.to_datetime
     fill_in "Remind at", with: @todo.remind_at.to_datetime
     fill_in "Task", with: @todo.task
+    check 'Status'
     click_on "Update Todo"
 
     assert_text "Todo was successfully updated"
+    @todo.reload
+    assert @todo.status == "complete"
     click_on "Back"
   end
 
