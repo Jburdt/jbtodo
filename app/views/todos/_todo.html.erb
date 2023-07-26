@@ -1,28 +1,39 @@
-<div id="<%= dom_id todo %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Task:</strong>
-    <%= todo.task %>
-  </p>
+<div id="<%= dom_id todo %>" class="flex">
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Due on:</strong>
-    <%= todo.due_on %>
-  </p>
+  <div class="flex-auto w-64">
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Task:</strong>
+      <%= todo.task %>
+    </p>
+  </div>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Remind at:</strong>
-    <%= todo.remind_at %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1"></strong>
-    <input checked="false" type="checkbox" value="status_box" />
-    <%= todo.status %>
-  </p>
+  </div class="flex-auto w-64">
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Due on:</strong>
+      <%= todo.due_on %>
+    </p>
+  <div>
+  
+  <div class="flex-auto w-64">
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Remind at:</strong>
+      <%= todo.remind_at %>
+    </p>
+  </div>
+  
+  <div class="flex-auto w-64">
+    <p class="my-5">
+      <strong class="block font-medium mb-1"></strong>
+     <!-- <input <%= todo.status == "complete" ? "checked" : "" %>   type="checkbox" value="status_box" /> -->
+      <input <%= todo.complete? ? "checked" : "" %>   type="checkbox" value="status_box" />
+      <%= todo.status %>
+    </p>
+  </div>
 
   <% if action_name != "show" %>
     <%= link_to "Show this todo", todo, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this todo', edit_todo_path(todo), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
+
 </div>
