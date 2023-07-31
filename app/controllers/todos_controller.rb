@@ -3,8 +3,16 @@ class TodosController < ApplicationController
 
   # GET /todos or /todos.json
   def index
-    @todos = Todo.all.order(:due_on)
+    query = params[:query]
+    unless query.blank?
+      @todos = Todo.where(task: query) 
+      else 
+        @todos = Todo.all.order(:due_on)
+    end 
   end
+
+    # make filter method work on each character 
+    # show me completed / not completed list
 
   # GET /todos/1 or /todos/1.json
   def show
@@ -13,10 +21,12 @@ class TodosController < ApplicationController
   # GET /todos/new
   def new
     @todo = Todo.new
+    @editing = true
   end
 
   # GET /todos/1/edit
   def edit
+    @editing = true
   end
 
   # POST /todos or /todos.json

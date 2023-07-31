@@ -3,12 +3,18 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
+<%= form_with url: "/todos", method: :get do |form| %>
+  <%= form.label :query, "Search for:" %>
+  <%= form.text_field :query %>
+  <%= form.submit "Search" %>
+<% end %>
+
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Todos</h1>
     <%= link_to 'New todo', new_todo_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
-  <div id="todos" class="min-w-full">
+  <ul id="todos" class="min-w-full">
     <%= render @todos %>
-  </div>
+  </ul>
 </div>

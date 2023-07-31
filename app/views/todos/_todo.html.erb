@@ -1,39 +1,17 @@
-<div id="<%= dom_id todo %>" class="flex">
-
-  <div class="flex-auto w-64">
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Task:</strong>
-      <%= todo.task %>
-    </p>
-  </div>
-
-  </div class="flex-auto w-64">
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Due on:</strong>
-      <%= todo.due_on %>
-    </p>
-  <div>
+<li id="<%= dom_id todo %>">
+  <!-- <input <%= todo.status == "complete" ? "checked" : "" %>   type="checkbox" value="status_box" /> -->
+  <input class="mx-6" <%= todo.complete? ? "checked" : "" %> type="checkbox" value="status_box" <%= @editing ? "" : "disabled" %> />
+  <span class="mx-6 font-bold"><%= todo.task %></span> 
+  <span class="mx-6"><%= todo.due_on %></span>
   
-  <div class="flex-auto w-64">
-    <p class="my-5">
-      <strong class="block font-medium mb-1">Remind at:</strong>
-      <%= todo.remind_at %>
-    </p>
-  </div>
-  
-  <div class="flex-auto w-64">
-    <p class="my-5">
-      <strong class="block font-medium mb-1"></strong>
-     <!-- <input <%= todo.status == "complete" ? "checked" : "" %>   type="checkbox" value="status_box" /> -->
-      <input <%= todo.complete? ? "checked" : "" %>   type="checkbox" value="status_box" />
-      <%= todo.status %>
-    </p>
-  </div>
-
   <% if action_name != "show" %>
     <%= link_to "Show this todo", todo, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this todo', edit_todo_path(todo), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to edit_todo_path(todo), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" do %>
+    <i class="bi bi-pencil-square"></i> 
+    <% end %>
+        <div class="inline-block ml-2">
+      <%= button_to 'Destroy this todo', todo_path(todo), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    </div>
     <hr class="mt-6">
   <% end %>
-
-</div>
+</li>
