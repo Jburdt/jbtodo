@@ -6,12 +6,13 @@
   
   <% if action_name != "show" %>
     <%= link_to "Show this todo", todo, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to edit_todo_path(todo), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" do %>
-    <i class="bi bi-pencil-square"></i> 
-    <% end %>
+    <%= link_to "Edit this todo", edit_todo_path(todo), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
         <div class="inline-block ml-2">
-      <%= button_to 'Destroy this todo', todo_path(todo), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
+          <%= button_to 'Destroy this todo', todo_path(todo), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+        </div>
     <hr class="mt-6">
   <% end %>
 </li>
+
+<!-- fix bootstrap icons switch to tailwind //change delete button color -->
+

@@ -5,14 +5,15 @@ class TodosController < ApplicationController
   def index
     query = params[:query]
     unless query.blank?
-      @todos = Todo.where(task: query) 
+      # @todos = Todo.where(task: query)
+      @todos = Todo.where("task LIKE ?", query + "%")
       else 
         @todos = Todo.all.order(:due_on)
     end 
   end
 
     # make filter method work on each character 
-    # show me completed / not completed list
+
 
   # GET /todos/1 or /todos/1.json
   def show
