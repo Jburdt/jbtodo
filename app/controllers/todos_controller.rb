@@ -6,7 +6,7 @@ class TodosController < ApplicationController
     query = params[:query]
     unless query.blank?
       # @todos = Todo.where(task: query)
-      @todos = Todo.where("task LIKE ?", query + "%")
+      @todos = Todo.where("task LIKE ?", "%#{query.downcase}%" )
       else 
         @todos = Todo.all.order(:due_on)
     end 
