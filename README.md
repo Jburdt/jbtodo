@@ -1,24 +1,9 @@
-# README
+# TODO APP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- This is just a basic todo app to help me practice the fundimentals of Ruby on Rails. I'll keep adding things in periodically to keep practicing so if the App doesn't look great sometimes or has bugs, it may be because I'm slowly continuing the build.
 
-Things you may want to cover:
+## Requirments to run app
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- git clone git@github.com:Jburdt/jbtodo.git
+- bin/rails db:setup
+- bin/dev
