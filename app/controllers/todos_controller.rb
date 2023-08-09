@@ -12,8 +12,9 @@ class TodosController < ApplicationController
     end 
   end
 
-    # make filter method work on each character 
-
+  def search
+    @todo = Todo.where("task LIKE ?", "%" + params[:q.downcase] + "%")
+  end
 
   # GET /todos/1 or /todos/1.json
   def show
