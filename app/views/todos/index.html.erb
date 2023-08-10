@@ -3,10 +3,10 @@
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div id="search" class="flex justify-between items-center" action="/search">
+  <div id="search" class="flex justify-between items-center">
     <%= form_with url: "/todos", method: :get do |form| %>
-      <%= form.label :q, "Search for:" %>
-      <%= form.text_field :q %>
+      <%= form.label :query, "Search for:" %>
+      <%= form.text_field :query %>
       <%= form.submit "Search" %>
     <% end %>
   </div>

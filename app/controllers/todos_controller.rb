@@ -6,14 +6,10 @@ class TodosController < ApplicationController
     query = params[:query]
     unless query.blank?
       # @todos = Todo.where(task: query)
-      @todos = Todo.where("task LIKE ?", "%#{query.downcase}%")
+      @todos = Todo.where("Lower(task) LIKE ?", "%#{query.downcase}%")
       else 
         @todos = Todo.all.order(:due_on)
     end 
-  end
-
-  def search
-    @todo = Todo.where("task LIKE ?", "%" + params[:q.downcase] + "%")
   end
 
   # GET /todos/1 or /todos/1.json
