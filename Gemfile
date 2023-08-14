@@ -12,9 +12,6 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
-# Heroicon
-gem "heroicon"
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
@@ -32,6 +29,9 @@ gem "tailwindcss-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+# Heroicon
+gem "heroicon"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

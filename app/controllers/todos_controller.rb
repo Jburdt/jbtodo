@@ -5,11 +5,14 @@ class TodosController < ApplicationController
   def index
     query = params[:query]
     unless query.blank?
-      # @todos = Todo.where(task: query)
       @todos = Todo.where("Lower(task) LIKE ?", "%#{query.downcase}%")
       else 
         @todos = Todo.all.order(:due_on)
     end 
+  end
+
+  def completed
+    
   end
 
   # GET /todos/1 or /todos/1.json
