@@ -6,9 +6,15 @@ class TodosController < ApplicationController
     query = params[:query]
     unless query.blank?
       @todos = Todo.where("Lower(task) LIKE ?", "%#{query.downcase}%")
-      else 
-        @todos = Todo.all.order(:due_on)
-    end 
+    else
+      @todos = Todo.all.order(:due_on)
+    end
+
+    if turbo_frame_request?
+      render partial: "todos", locals: {todos: @todos}
+    else
+      render :index
+    end
   end
 
   def completed
@@ -69,13 +75,13 @@ class TodosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_todo
-      @todo = Todo.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_todo
+    @todo = Todo.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def todo_params
-      params.require(:todo).permit(:task, :due_on, :remind_at, :status)
-    end
+  # Only allow a list of trusted parameters through.
+  def todo_params
+    params.require(:todo).permit(:task, :due_on, :remind_at, :status)
+  end
 end
