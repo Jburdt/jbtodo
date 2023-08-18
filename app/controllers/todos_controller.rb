@@ -18,7 +18,8 @@ class TodosController < ApplicationController
   end
 
   def completed
-    
+    @todos = Todo.complete
+    render :index
   end
 
   # GET /todos/1 or /todos/1.json

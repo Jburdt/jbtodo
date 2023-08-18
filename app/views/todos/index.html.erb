@@ -15,13 +15,12 @@
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Todos</h1>
     <%= link_to 'New todo', new_todo_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-    <%= link_to "Completed", class: "rounded-lg py-3 px-5 bg-gray-600 text-white block font-medium" %> 
   </div>
 
-  <%= link_to "Completed", class: "rounded-lg py-3 px-5 bg-gray-600 text-white block font-medium" %> 
+  <%= link_to "completed", completed_path, class: "rounded-lg py-3 px-5 bg-gray-600 text-white block font-medium" %> 
 
   <%= render partial: "todos" %>
 </div>
 
 
-<!-- FIX LINE 19 / show me completed / not completed list //change delete button color / fix bootstrap icons switch to tailwind -->
+<!-- FIX LINE 19 / show me completed / not completed list //change delete button color / fix icons switch to tailwind -->
