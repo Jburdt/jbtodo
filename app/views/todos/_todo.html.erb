@@ -1,5 +1,4 @@
 <li id="<%= dom_id todo %>">
-  <!-- <input <%= todo.status == "complete" ? "checked" : "" %>   type="checkbox" value="status_box" /> -->
   <input class="mx-6" <%= todo.complete? ? "checked" : "" %> type="checkbox" value="status_box" <%= @editing ? "" : "disabled" %> />
   <span class="mx-6 font-bold"><%= todo.task %></span> 
   <span class="mx-6"><%= todo.due_on %></span>
@@ -7,7 +6,7 @@
   <% if action_name != "show" %>
     <%= link_to "Show this todo", todo, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to edit_todo_path(todo) do %>
-    <%= heroicon "pencil-square", options: { class: "w-4 inline" } %>
+    <%= heroicon "pencil-square", options: { class: "w-12 inline bg-inherit" } %>
     <% end %>
         <div class="inline-block ml-2">
           <%= button_to 'Destroy this todo', todo_path(todo), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-[red] font-medium" %>
@@ -15,6 +14,3 @@
     <hr class="mt-6">
   <% end %>
 </li>
-
-<!-- fix bootstrap icons switch to tailwind //change delete button color -->
-
