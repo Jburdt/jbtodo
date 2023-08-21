@@ -6,15 +6,15 @@
   <div id="search" class="flex justify-end items-center" >
     <%= form_with url: "/todos", data: { turbo_frame: "todos", turbo_action: "advance"}, method: :get do |form| %>
       <%= form.label :query, "Search for:" %>
-      <%= form.text_field :query, data: {action:"keyup->search#doSearch"} %>
-      <%= form.submit "Search" %>
+      <%= form.text_field :query, data: {action:"keyup->search#doSearch"}, class:"rounded-lg border-2 shadow-lg border-black" %>
+      <%= form.submit "Search", class:"rounded-lg border-2 border-black p-2 bg-blue-500"  %>
     <% end %>
   </div>
 
     <h1 class="font-bold text-4xl">Todos</h1>
   <div class="flex space-x-4 items-end gap-0">
     <%= link_to 'New todo', new_todo_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-    <%= link_to "completed", completed_path, class: "rounded-lg py-3 px-5 bg-green-600 text-white block font-medium inline" %> 
+    <%= link_to "Completed", completed_path, class: "rounded-lg py-3 px-5 bg-green-600 text-white block font-medium inline" %> 
   </div>
 
   <%= render partial: "todos" %>
