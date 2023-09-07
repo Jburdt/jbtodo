@@ -7,3 +7,8 @@
 - git clone git@github.com:Jburdt/jbtodo.git
 - bin/rails db:setup
 - bin/dev
+
+## Things I learned creating this app
+
+* Turbo
+* Devise - popular gem in Rails for authentication
