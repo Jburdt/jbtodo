@@ -5,9 +5,9 @@ class TodosController < ApplicationController
   def index
     query = params[:query]
     unless query.blank?
-      @todos = Todo.where("Lower(task) LIKE ?", "%#{query.downcase}%")
+      @todos = current_user.todos.where("Lower(task) LIKE ?", "%#{query.downcase}%")
     else
-      @todos = Todo.all.order(:due_on)
+      @todos = current_user.todos.all.order(:due_on)
     end
 
     if turbo_frame_request?
@@ -18,7 +18,7 @@ class TodosController < ApplicationController
   end
 
   def completed
-    @todos = Todo.complete
+    @todos = current_user.todos.complete
     render :index
   end
 
@@ -28,7 +28,7 @@ class TodosController < ApplicationController
 
   # GET /todos/new
   def new
-    @todo = Todo.new
+    @todo = current_user.todos.new
     @editing = true
   end
 
@@ -39,7 +39,7 @@ class TodosController < ApplicationController
 
   # POST /todos or /todos.json
   def create
-    @todo = Todo.new(todo_params)
+    @todo = current_user.todos.new(todo_params)
 
     respond_to do |format|
       if @todo.save
@@ -78,7 +78,7 @@ class TodosController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_todo
-    @todo = Todo.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
