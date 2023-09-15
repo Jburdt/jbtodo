@@ -12,11 +12,13 @@
   </head>
 
   <body>
+      <div class="mx-auto md:w-2/3 w-full">
       <%= render "layouts/nav" %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <main>
       <%= yield %>
     </main>
+    </div> 
   </body>
 </html>
