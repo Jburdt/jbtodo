@@ -6,13 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-      <div class="mx-auto md:w-2/3 w-full">
+      <div>
       <%= render "layouts/nav" %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
