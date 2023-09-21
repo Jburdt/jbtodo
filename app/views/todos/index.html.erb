@@ -1,10 +1,8 @@
 <div class="w-full">
-  <% if user_signed_in? %>
-    <h1>Welcome Home, <%= current_user.email %></h1>
-    <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+  <% if user_signed_in? &&  current_user.todos.empty? %>
+   <h1><%= current_user.email.capitalize %> as no Todo's.</h1>
   <% else %>
-    <h1>Home</h1>
-    <%= link_to 'Sign in', new_user_session_path %>
+    <h1>Total Todo's: <%= current_user.todos.length %></h1>
   <% end %>
 
   <% if notice.present? %>
