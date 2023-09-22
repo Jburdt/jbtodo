@@ -1,15 +1,16 @@
 <div class="w-full">
-  <% if user_signed_in? &&  current_user.todos.empty? %>
-   <h1><%= current_user.email.capitalize %> as no Todo's.</h1>
-  <% else %>
-    <h1>Total Todo's: <%= current_user.todos.length %></h1>
-  <% end %>
 
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div id="search" class="flex justify-end items-center" >
+  <div id="search" class="flex justify-between mt-4 mx-4" >
+    <% if user_signed_in? &&  current_user.todos.empty? %>
+        <h1 class="justify-start text-lg pt-1"><%= current_user.email.capitalize %> Has no Todo's.</h1>
+      <% else %>
+        <h1>Total Todo's: <%= current_user.todos.length %></h1>
+    <% end %>
+
     <%= form_with url: "/todos", data: { turbo_frame: "todos", turbo_action: "advance"}, method: :get do |form| %>
       <%= form.label :query, "Search for:" %>
       <%= form.text_field :query, data: {action:"keyup->search#doSearch"}, class:"rounded-lg border-2 shadow-lg border-black" %>
@@ -17,8 +18,8 @@
     <% end %>
   </div>
 
+  <div class="flex justify-between mt-4 mx-4">
     <h1 class="font-bold text-4xl">Todos</h1>
-  <div class="flex space-x-4 items-end gap-0">
     <%= link_to 'New todo', new_todo_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
     <%= link_to "Completed", completed_path, class: "rounded-lg py-3 px-5 bg-green-600 text-white block font-medium inline" %> 
   </div>

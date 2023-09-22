@@ -1,7 +1,7 @@
 <li id="<%= dom_id todo %>">
   <input class="mx-6" <%= todo.complete? ? "checked" : "" %> type="checkbox" value="status_box" <%= @editing ? "" : "disabled" %> />
   <span class="mx-6 font-bold"><%= todo.task %></span> 
-  <span class="mx-6"><%= todo.due_on %></span>
+  <span class="mx-6"><%= todo.due_on.strftime('%A %b %Y %e %r ') %></span>
   
   <% if action_name != "show" %>
     <%= link_to "Show this todo", todo, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

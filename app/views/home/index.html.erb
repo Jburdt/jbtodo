@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <h1 class="font-mono flex justify-center underline">Welcome, <%= current_user.email.capitalize %></h1>
   <% else %>
-  <p class="font-mono flex justify-center">Please log in or sign up</p>
+    <p class="font-mono flex justify-center">Please log in or sign up</p>
   <% end %>
 </div> 
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
