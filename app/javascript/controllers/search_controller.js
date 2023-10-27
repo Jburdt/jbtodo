@@ -8,3 +8,5 @@ export default class extends Controller {
 	this.formTarget.submit();
   }
 }
+
+/* fix search */
