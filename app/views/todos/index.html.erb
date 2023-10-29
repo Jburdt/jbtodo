@@ -17,12 +17,12 @@
       <%= form.submit "Search", class:"rounded-lg border-2 border-black p-2 bg-blue-500"  %>
     <% end %>
   </div>
+  <hr />
 
   <div class="flex justify-between mt-4 mx-4">
-    <h1 class="font-bold text-4xl">Todos</h1>
-    <%= link_to 'New todo', new_todo_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'New todo', new_todo_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium " %>
     <%= link_to "Completed", completed_path, class: "rounded-lg py-3 px-5 bg-green-600 text-white block font-medium inline" %> 
   </div>
-
   <%= render partial: "todos" %>
+
 </div>
