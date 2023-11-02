@@ -5,11 +5,7 @@
 @layer components {
 
   label {
-    @apply block font-medium;
-  }
-
-  input [type="field"] {
-    @apply rounded-md;
+    @apply inline-block font-medium 
   }
   
   input[type="submit"] {
