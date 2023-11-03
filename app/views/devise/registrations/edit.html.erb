@@ -1,5 +1,5 @@
-<h2 class="font-bold text-4xl m-4">Edit <%= resource_name.to_s.humanize %></h2>
-<div class="flex justify-start items-start">
+<div class="mx-auto max-w-md">
+<h2 class="text-5xl underline underline-offset-8 p-4"><%= resource_name.to_s.humanize %></h2>
   <div id="Edit_user_info" class="m-4"></div>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -33,9 +33,9 @@
         <%= f.password_field :current_password, autocomplete: "current-password" %>
       </div>
 
-      <div class="actions m-2">
+      <div class="actions mt-2">
         <%= f.submit "Update" %>
-        <%= link_to "Back", :back, { class: "bg-green-500 text-white px-3 py-2 rounded" } %>
+        <%= link_to "Back", :back, { class: "bg-green-500 text-white px-3 py-2.5 rounded" } %>
       </div>
 
     <div class="btn rounded bg-red-600 mt-4 p-2 w-32"><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %>
