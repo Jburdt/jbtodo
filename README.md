@@ -10,5 +10,6 @@
 
 ## Things I learned creating this app
 
+* Render deployment
 * Turbo
 * Devise - popular gem in Rails for authentication
