@@ -1,6 +1,6 @@
 databases:
   - name: rails
-    databaseName: postgres
+    databaseName: mysite
     user: mysite
 
 services:
