@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL']
   database: jbtodo_production
   username: jbtodo
   password: <%= ENV["JBTODO_DATABASE_PASSWORD"] %>
