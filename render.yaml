@@ -1,7 +1,7 @@
 databases:
-  - name: rails
-    databaseName: jbtodo_production
-    user: mysite
+  - name: jbtodo
+    databaseName: jbtodo
+    user: jbtodo
 
 services:
   - type: web
