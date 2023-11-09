@@ -1,5 +1,7 @@
 <li id="<%= dom_id todo %>" data-controller="todo">
-  <input class="mx-6" <%= todo.complete? ? "checked" : "" %> type="checkbox" value="status_box" data-action="click->todo#toggle" />
+  <%= form_for todo, data: {"todo-target": "form"} do |f| %>
+    <%= f.check_box :status, {class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2", data: {action: "click->todo#toggle"}}, "complete", "incomplete" %>
+  <% end %>
   <span class="mx-6 font-bold"><%= todo.task %></span> 
   <span class="mx-6"><%= todo.due_on.strftime('%A %b %Y %e %r ') %></span>
   
