@@ -1,5 +1,5 @@
-<li id="<%= dom_id todo %>">
-  <input class="mx-6" <%= todo.complete? ? "checked" : "" %> type="checkbox" value="status_box" <%= @editing ? "" : "disabled" %> />
+<li id="<%= dom_id todo %>" data-controller="todo">
+  <input class="mx-6" <%= todo.complete? ? "checked" : "" %> type="checkbox" value="status_box" data-action="click->todo#toggle" />
   <span class="mx-6 font-bold"><%= todo.task %></span> 
   <span class="mx-6"><%= todo.due_on.strftime('%A %b %Y %e %r ') %></span>
   
