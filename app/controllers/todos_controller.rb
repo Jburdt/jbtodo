@@ -5,19 +5,19 @@ class TodosController < ApplicationController
   def index
     query = params[:query]
     unless query.blank?
-      @todos = current_user.todos.where("Lower(task) LIKE ?", "%#{query.downcase}%")
+      @todos = Todo.global_search(params[:query])
     else
       @todos = current_user.todos.all.order(:due_on)
     end
 
-    if turbo_frame_request?
-      render partial: "todos", locals: {todos: @todos}
-    else
-      render :index
+    respond_to do |format|
+      format.html
+      format.json { render json: { todos: @todos } }
     end
   end
 
   def completed
+    @completed = true
     @todos = current_user.todos.complete
     render :index
   end

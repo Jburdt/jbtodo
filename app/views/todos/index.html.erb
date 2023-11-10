@@ -1,28 +1,39 @@
 <div class="w-full">
-
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
 
-  <div id="search" class="flex justify-between mt-4 mx-4 items-center" >
     <% if user_signed_in? &&  current_user.todos.empty? %>
-        <h1 class="justify-start text-lg pt-1"><%= current_user.email.capitalize %> Has no Todo's.</h1>
+        <div class="justify-start text-lg pt-1"><%= current_user.email.capitalize %> has no todo's.</div>
       <% else %>
-        <h1 class="text-blue-500 ">Total Todo's: <%= current_user.todos.length %></h1>
-    <% end %>
+        <div class="text-blue-500 ">Total Todo's: <%= current_user.todos.length %></div>
+      <% end %>
 
-    <%= form_with url: "/todos", data: { turbo_frame: "todos", turbo_action: "advance"}, method: :get do |form| %>
-      <%= form.label :query, "Search for:" %>
-      <%= form.text_field :query, data: {action:"keyup->search#doSearch"}, class:"rounded-lg border-2 border-black mb-2" %>
-      <%= form.submit "Search", class:"rounded-lg border-2 border-black p-2 bg-blue-500"  %>
+      <div id="search" class="justify-between mt-4 mx-4 items-center" data-controller="search" >
+        <% if user_signed_in? &&  !@todos.empty? %>
+          <%= form_with url: "/todos", data: { action: "submit->search#submit"}, class: "inline", method: :get do |form| %>
+            <%= form.text_field :query, data: {"search-target": "query"}, class:"ml-2 outline-none bg-transparent" %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pt-0.5 text-gray-600 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor" data-action="click->search#submit">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          <% end %>
+          <% unless @completed %>
+            <%= link_to completed_path, class: "inline", title: "Show completed" do %>
+              <%= heroicon "check-circle", options: { class: "w-9 inline bg-inherit" } %>
+            <% end %>
+          <% else %>
+            <%= link_to todos_path, class: "inline", title: "Show all" do %>
+              <%= heroicon "home", options: { class: "w-9 inline bg-inherit" } %>
+            <% end %>
+          <% end %>
+          <%= render partial: "todos" %>
+        <% end %>
+      </div>
+    <hr />
+
+  <div class="flex justify-beginning gap-2 mr-2 mt-2">
+    <%= link_to  new_todo_path, class: "rounded-lg py-3 px-5 " do %>
+      <%= heroicon "plus", options: { class: "w-9 inline bg-inherit" } %>
     <% end %>
   </div>
-  <hr />
-
-  <div class="flex justify-end gap-2 mr-2 mt-2">
-    <%= link_to 'New todo', new_todo_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium " %>
-    <%= link_to "Completed", completed_path, class: "rounded-lg py-3 px-5 bg-green-600 text-white block font-medium inline" %> 
-  </div>
-  <%= render partial: "todos" %>
-
 </div>

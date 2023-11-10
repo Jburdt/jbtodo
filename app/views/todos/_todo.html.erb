@@ -4,12 +4,14 @@
   <span class="mx-6"><%= todo.due_on.strftime('%A %b %Y %e %r ') %></span>
   
   <% if action_name != "show" %>
-    <%= link_to "Show this todo", todo, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to edit_todo_path(todo) do %>
-    <%= heroicon "pencil-square", options: { class: "w-12 inline bg-inherit" } %>
+    <%= heroicon "pencil-square", options: { class: "w-9 inline bg-inherit" } %>
     <% end %>
-        <div class="inline-block ml-2">
-          <%= button_to 'Destroy this todo', todo_path(todo), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-[red] font-medium" %>
+    <div class="inline-block ml-2">
+
+      <%= button_to todo_path(todo), method: :delete, class: "mt-2 rounded-lg py-3 px-5" do %>
+          <%= heroicon "trash", options: { class: "w-9 inline bg-inherit" } %>
+      <% end %>
         </div>
     <hr class="mt-6">
   <% end %>
